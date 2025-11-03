@@ -9,7 +9,7 @@ GitHub Roaster is a Kotlin-based Spring Boot application that serves as a wrappe
 The application can be used to:
 - Retrieve GitHub user profiles
 - List repositories for a specific user
-- Get repository details
+- Get repository details (including star counts)
 - Fetch commit history for repositories
 - View recent user events
 - Collect comprehensive data about a user for "roasting" purposes
@@ -119,8 +119,30 @@ curl http://localhost:8080/api/github/roast-data/octocat
 ## Project Structure
 
 - `controller`: Contains REST controllers that define API endpoints
-- `service`: Contains business logic for interacting with the GitHub API
+- `service`: Contains business logic for interacting with the GitHub API and analyzing user data
 - `dto`: Contains data transfer objects that represent GitHub entities
+
+## Features
+
+### Repository Analysis
+The application analyzes repositories and provides insights based on:
+- Star counts
+- Fork counts
+- Language usage
+- Repository naming patterns
+- Description quality
+
+### Commit Analysis
+Analyzes commit patterns including:
+- Commit frequency
+- Commit message quality
+- Late night coding habits
+
+### Activity Analysis
+Examines user activity patterns such as:
+- Event types (pushes, pull requests, issues)
+- Contribution patterns
+- Engagement with other repositories
 
 ## Limitations
 

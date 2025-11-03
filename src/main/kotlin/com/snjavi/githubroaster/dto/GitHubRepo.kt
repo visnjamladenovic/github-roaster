@@ -13,6 +13,9 @@ data class GitHubRepo(
     @JsonProperty("forks_count")
     val forksCount: Int,
 
+    @JsonProperty("stargazers_count")
+    val stars: Int,
+
     val language:String? = null,
 
     val owner: Owner
