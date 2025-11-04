@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty
 
 data class GitHubRepo(
     val id: Long,
-    val name:String,
-    val description:String? = null,
+    val name: String,
+    val description: String? = null,
 
     @JsonProperty("html_url")
-    val url:String,
+    val url: String,
 
     @JsonProperty("forks_count")
     val forksCount: Int,
@@ -16,11 +16,12 @@ data class GitHubRepo(
     @JsonProperty("stargazers_count")
     val stars: Int,
 
-    val language:String? = null,
+    val language: String? = null,
 
     val owner: Owner
 
 )
+
 data class Owner(
     val id: Long,
     val login: String,

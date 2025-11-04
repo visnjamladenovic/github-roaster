@@ -249,7 +249,7 @@ class RoastAnalyzerService {
     private fun analyzeActivity(events: List<GitHubEvent>): ActivityInsights {
         val roastablePoints = mutableListOf<String>()
 
-        if(events.isEmpty()) {
+        if (events.isEmpty()) {
             roastablePoints.add("No recent activity - GitHub thinks you're a ghost")
             return ActivityInsights(
                 totalEvents = 0,
@@ -260,20 +260,20 @@ class RoastAnalyzerService {
         val eventTypes = events.groupingBy { it.type }.eachCount()
 
         val pushEvents = eventTypes["PushEvent"] ?: 0
-        val issueEvents = (eventTypes["IssueEvent"] ?: 0) +(eventTypes["IssueCommentEvent"] ?: 0)
+        val issueEvents = (eventTypes["IssueEvent"] ?: 0) + (eventTypes["IssueCommentEvent"] ?: 0)
         val prEvents = (eventTypes["PullRequestEvent"] ?: 0) + (eventTypes["PullRequestReviewEvent"] ?: 0)
         val watchEvents = eventTypes["WatchEvent"] ?: 0
         val forkEvents = eventTypes["ForkEvent"] ?: 0
 
-        if (pushEvents == 0){
+        if (pushEvents == 0) {
             roastablePoints.add("Fork collector - do you actually contribute or just hoard?")
         }
 
-        if(forkEvents > pushEvents * 2){
+        if (forkEvents > pushEvents * 2) {
             roastablePoints.add("More watching than pushing - professional repo stalker")
         }
 
-        if(watchEvents > pushEvents && pushEvents > 0){
+        if (watchEvents > pushEvents && pushEvents > 0) {
             roastablePoints.add("More watching than pushing - professional repo stalker")
         }
 
@@ -281,12 +281,12 @@ class RoastAnalyzerService {
             roastablePoints.add("No issues or PRs - not a team player or just a solo coder?")
         }
 
-        if(eventTypes.size == 1) {
+        if (eventTypes.size == 1) {
             val singleEventType = eventTypes.keys.first()
             roastablePoints.add("Only $singleEventType activities - ever tried doing something different?")
         }
 
-        if(events.size < 10) {
+        if (events.size < 10) {
             roastablePoints.add("Only ${events.size} recent events - part-time developer?")
         }
         return ActivityInsights(

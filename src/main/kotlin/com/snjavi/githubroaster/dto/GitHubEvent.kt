@@ -9,9 +9,10 @@ data class GitHubEvent(
     @JsonProperty("created_at")
     val createdAt: String,
 
-    val repo:EventRepo,
-    val payload: Map<String,Any>?
+    val repo: EventRepo,
+    val payload: Map<String, Any>?
 )
+
 data class EventRepo(
     val id: Long,
     val name: String,
