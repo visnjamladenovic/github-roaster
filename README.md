@@ -1,4 +1,4 @@
-# GitHub Roaster 🔥
+# GitHub Roaster
 
 A full-stack application that analyzes GitHub profiles and generates humorous AI-powered "roasts" based on a user's GitHub activity.
 
