@@ -103,39 +103,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.submit-button::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%);
-  transform-origin: 50% 50%;
-}
-
-.submit-button:focus:not(:active)::after {
-  animation: ripple 1s ease-out;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0.5;
-  }
-  20% {
-    transform: scale(25, 25);
-    opacity: 0.3;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(40, 40);
-  }
-}
-
 .submit-button:hover {
   background-color: var(--hover-color);
   transform: translateY(-2px);
@@ -196,9 +163,9 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   padding: 2rem;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
   border: 1px solid rgba(179, 136, 255, 0.1);
   position: relative;
   overflow: hidden;
@@ -214,97 +181,150 @@ body {
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.user-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 1.5rem;
-  border: 3px solid var(--primary-color);
-  box-shadow: 0 0 15px rgba(179, 136, 255, 0.5);
-}
-
-.user-info h2 {
-  margin: 0 0 0.5rem;
-  color: var(--light-color);
-  text-shadow: 0 0 5px rgba(179, 136, 255, 0.3);
-}
-
-.user-bio {
-  margin: 0;
-  color: #aaa;
-  font-style: italic;
-}
-
 .roast-content h3 {
   color: var(--primary-color);
   margin-top: 0;
+  margin-bottom: 1rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-shadow: 0 0 10px rgba(179, 136, 255, 0.4);
 }
 
+.username-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(179, 136, 255, 0.4);
+}
+
 .roast-text {
-  font-size: 1.2rem;
-  line-height: 1.6;
+  font-size: 1.3rem;
+  line-height: 1.7;
   margin-bottom: 2rem;
-  padding: 1.2rem;
+  padding: 1.5rem;
   background-color: rgba(179, 136, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 8px;
   border-left: 4px solid var(--primary-color);
   color: var(--light-color);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
 }
 
-.commit-section h4 {
-  color: var(--primary-color);
-  margin-bottom: 0.8rem;
-  font-weight: 600;
-}
-
-.commit-list {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.commit-list li {
-  padding: 0.8rem;
+/* Share Section Styles */
+.share-section {
+  margin: 2rem 0 1.5rem;
+  padding: 1.5rem;
   background-color: rgba(0, 0, 0, 0.2);
-  margin-bottom: 0.5rem;
-  border-radius: 4px;
-  font-family: monospace;
-  font-size: 0.9rem;
-  border-left: 3px solid var(--secondary-color);
-  color: #ddd;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(179, 136, 255, 0.2);
 }
 
-.repos-section {
-  margin-top: 1.5rem;
-  padding: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  border-top: 2px solid var(--secondary-color);
-}
-
-.repos-section h4 {
+.share-section h4 {
   color: var(--primary-color);
   margin-top: 0;
-  margin-bottom: 0.8rem;
-  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
 }
 
-.repos-section p {
-  margin: 0.5rem 0;
+.share-buttons {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.share-button {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.share-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.share-button:active {
+  transform: translateY(0);
+}
+
+.copy-button {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.copy-button:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+.twitter-button {
+  background: linear-gradient(135deg, #1da1f2, #0d8bd9);
+  color: white;
+}
+
+.twitter-button:hover {
+  background: linear-gradient(135deg, #0d8bd9, #1da1f2);
+}
+
+.linkedin-button {
+  background: linear-gradient(135deg, #0077b5, #005885);
+  color: white;
+}
+
+.linkedin-button:hover {
+  background: linear-gradient(135deg, #005885, #0077b5);
+}
+
+.facebook-button {
+  background: linear-gradient(135deg, #1877f2, #0c63d4);
+  color: white;
+}
+
+.facebook-button:hover {
+  background: linear-gradient(135deg, #0c63d4, #1877f2);
+}
+
+/* Action Buttons */
+.action-buttons {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.new-roast-button {
+  background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
   font-size: 1rem;
-  color: #ddd;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(124, 77, 255, 0.4);
+}
+
+.new-roast-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 77, 255, 0.6);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
+
+.new-roast-button:active {
+  transform: translateY(0);
 }
 
 .App-footer {
@@ -316,4 +336,38 @@ body {
   font-size: 0.9rem;
   border-top: 1px solid rgba(179, 136, 255, 0.3);
   box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App-header h1 {
+    font-size: 2rem;
+  }
+
+  .roast-text {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+  }
+
+  .share-buttons {
+    flex-direction: column;
+  }
+
+  .share-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .username-form {
+    flex-direction: column;
+  }
+
+  .username-input {
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .submit-button {
+    border-radius: 4px;
+  }
 }
