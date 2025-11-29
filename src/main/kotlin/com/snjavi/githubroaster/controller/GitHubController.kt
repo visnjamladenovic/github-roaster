@@ -6,11 +6,7 @@ import com.snjavi.githubroaster.dto.GitHubRepo
 import com.snjavi.githubroaster.dto.GitHubUser
 import com.snjavi.githubroaster.service.GitHubService
 import com.snjavi.githubroaster.service.RoastData
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/github")
@@ -23,6 +19,11 @@ class GitHubController(private val gitHubService: GitHubService) {
         @PathVariable repoName: String
     ): GitHubRepo? {
         return gitHubService.getRepository(owner, repoName)
+    }
+
+    @GetMapping("/ping")
+    fun ping(): String {
+        return "Backend reached successfully"
     }
 
     //get all repos for one user
@@ -56,7 +57,7 @@ class GitHubController(private val gitHubService: GitHubService) {
 
     }
 
-    //get all roas data for a user profile + repos + commits + events
+    //get all roast data for a user profile + repos + commits + events
     @GetMapping("/roast-data/{username}")
     fun getRoastData(@PathVariable username: String): RoastData = gitHubService.getRoastData(username)
 }

@@ -1,4 +1,4 @@
-package com.snjavi.githubroaster.controller
+package com.snjavi.githubroaster.config
 
 import io.github.cdimascio.dotenv.Dotenv
 import io.github.cdimascio.dotenv.DotenvException
@@ -17,7 +17,7 @@ class DotenvConfig {
 
             dotenv.entries().forEach { entry ->
                 System.setProperty(entry.key, entry.value)
-                println("✅ Loaded env variable: ${entry.key}")
+                println("Loaded env variable: ${entry.key}")
             }
 
             println(".env file loaded successfully!")
